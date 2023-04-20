@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fixed and Relative Header</title>
+    <style>
+        body {
+            background-color: rgb(221, 220, 220);
+            margin: 0px;
+        }
+        p {
+            margin: 0;
+        }
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 10px;
+      }
+
+      .container {
+        margin-top: 100px; 
+        width: 100%;
+      }
+
+      h1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: rgb(104, 19, 184);
+      }
+      del {
+        color: #909090;
+      }
+      .container h1 {
+        text-align: center;
+      }
+      .content {
+        display: inline-block;
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+      .space {
+        width: 20%;
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+      }
+      .box {
+        display: inline-block;
+        width: 300px;
+        height: 300px;
+        background-color: white;
+        border-radius: 10px;
+        margin-bottom: 4px;
+      }
+      .img {
+        height: 70%;
+        width: 100%;
+        border-top-right-radius:10px ;
+        border-top-left-radius:10px ;
+        background-size: cover; /* use "contain" to fit image within element without cropping */
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      .name {
+        top: 0;
+        height: 12%;
+        margin-left: 3px;
+        margin-right: 3px;
+        font-size: small;
+      }
+      .name p {
+        width: 100%;
+        display: inline-block;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .price {
+        height: 13%;
+        margin-bottom: opx;
+        margin-left: 3px;
+        margin-right: 3px;
+        bottom: 0;
+        font-size: small;
+      }
+      .newPrice {
+        color: red;
+        font-size: medium;
+      }
+      .freeT {
+        height: 5%;
+      }
+      .freeT img {
+        height: 100%;
+        border-top-right-radius:10px ;
+        border-top-left-radius:10px ;
+        background-size: cover; /* use "contain" to fit image within element without cropping */
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Lazada</h1>
+    </header>
+    <div class="container">
+        <div class="space" style="left: 0;">
+            
+        </div>
+        <div class="content">
+            <h1>Just For You</h1>
+            <div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('img/ai.png');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">600$</p>
+                        <p><del>1000$</del>  60%</p>
+                    </div>
+                </div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('img/aqua.png');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                        <img src="img/freeT.png">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">&nbsp;</p>
+                        <p>9000$</p>
+                    </div>
+                </div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('img/ruby.png');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                        <img src="img/freeT.png">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">600$</p>
+                        <p><del>1000$</del>  60%</p>
+                    </div>
+                </div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('img/kana.png');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">600$</p>
+                        <p><del>1000$</del>  60%</p>
+                    </div>
+                </div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('img/akane.png');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">&nbsp;</p>
+                        <p>1000$</p>
+                    </div>
+                </div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('img/memCho.png');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">600$</p>
+                        <p><del>1000$</del>  60%</p>
+                    </div>
+                </div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('img/ai2.jpg');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                        <img src="img/freeT.png">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">600$</p>
+                        <p><del>1000$</del>  60%</p>
+                    </div>
+                </div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('https://lh3.googleusercontent.com/pw/AJFCJaVvrLM0t7x7P3mbbM2K5DQ4AMd-NxSHHsLzIKESbQx9q42DQfg7whByGebHQJaRK_B04qEBzV03jMC0YQzQn3sU-SwuZH_9iUOPb6ZS1856mPh1tQptfStD_LzfYmYECtB_5pgsX3NsQ7N3Jfs7F8HDoXKG0rKs94pTR1VTGE2ogdoJSUoAWu31d-v6DRHIEcMBR_5RoLcQpDEACBuOrg6tP6eotY1ipeX2T2xx3fdgo92uI3ytAB77xL7-QwsOzZSLXYSieAztzCHIokPmGyh58hMVAP-pVsVnK3XS1NbZQisy8XGA2NSOw-jxWWevbaS9Aw0QD-gOXGBl-zmHTC-C_0qu5eaygmr9cdh81DouMdVwe-cBnzOHDR88MrcZ4xPMOu38ahpeUUG3VVORdz9MoxY2JQ4ci8RDlYnC4OOqMBchGMU--cTxJAgz_4WLM6zVXpMoZL_utcK1M5E6tY3-ATPUDG8NlWakrxtK9v5Ff3pqT5P-3Zyl1JUYMrEwC-g9u71isHsaWyK5iOwHlvHVLGj0bpsvYBOy0aJscGTN9d5ocgdM7aNGqG4MRv_6kjRgWM1Sn0NcrdfidW80XJA2dNqUCIKABVETmQ1-7jPQbo1zZlxSiKz3Woxgkc3KbkG0rt7P9mcELdEfn2QbQoPtIF02frWCQEM_P73lp39zL21ucMJXC_ziGsuL934fISViPefK3o6BAzQILqIGjuzTUQcCcx5mWAaFV-sZQJNhvMbrgVU81GJestnOuM9BU1eV-Uwq7aH6msM38H2uvmR9isEPkFhx0JpKn38AcukTTa5dCjhmb6HBhnHma1NMg9eY5z12IcZi3xecLpOFTem-oKxBW6rr9tLI9WRhWQrPLEJn0I4yEhvpEYKJx9V-bbqhTc7j4tkXWrZjtBu5ayvpkGNR_BfNc6rLNRrZy_6GHNxo2F25eEBW13veS6G11Gv1RmHud3YQ7rfj9kPv5jqdQe9rBqw=w1100-h619-s-no?authuser=0');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">600$</p>
+                        <p><del>1000$</del>  60%</p>
+                    </div>
+                </div>
+                <div  class="box">
+                    <div class="img" style="background-image: url('img/oshiNoKo.jpg');">
+                    </div>
+                    <div class="name">
+                        <p>A long time ago when the internet wasn’t born yet the only technology that humans were able to use is abacus, old-fashioned cameras and etc.</p>
+                    </div>
+                    <div class="freeT">
+                    </div>
+                    <div class="price">
+                        <p class="newPrice">600$</p>
+                        <p><del>1000$</del>  60%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="space" style="right: 0;">
+            
+        </div>
+    </div>
+  </body>
+</html>
