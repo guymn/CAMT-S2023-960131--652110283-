@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <style>
+
+            .box {
+                background-color: red;
+                width: 100PX;
+                height: 100PX;
+            }
+            .x {
+                width: 500PX;
+                border: 2px dotted blue;
+                background-color: antiquewhite;
+                padding: 10px;
+            }
+        </style>
+    </header>
+    <body>
+        <h1>Box model</h1>
+        <div class="x">
+            <div class="box" 
+            style=" height: unset;
+                    width: unset;
+                    padding: 20px;
+                    margin: 10px;
+                    border: 20px solid orange ;
+            ">
+                <p style="background-color: green;
+                          border: 20px solid blueviolet ;
+                          margin: unset; 
+                         ">
+                    simple box
+                </p>
+            </div>
+        </div>
+
+        <h1>CSS Display</h1>
+        <h2>inline</h2>
+        <div class="x">
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            display: inline;
+            background-color: red;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            display: inline;
+            background-color: gold;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            display: inline;
+            background-color: bisque;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            display: inline;
+            background-color: blueviolet;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            display: inline;
+            background-color: rosybrown;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            display: inline;
+            background-color: aqua;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            display: inline;
+            background-color: honeydew;
+            ">
+                inline text
+            </div>
+        </div>
+        <h2>Blocx</h2>
+        <div class="x">
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            background-color: red;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            background-color: gold;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            background-color: bisque;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            background-color: blueviolet;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            background-color: rosybrown;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            background-color: aqua;
+            ">
+                inline text
+            </div>
+            <div class="box"
+            style="
+            height: unset;
+            width: unset;
+            background-color: honeydew;
+            ">
+                inline text
+            </div>
+        </div>
+
+        <h2>inline block</h2>
+        <div class="x">
+                <div style="display: inline-block;">apple</div>
+                <div style="display: inline-block;">orange</div>
+                <div style="display: inline-block;">mango</div>
+                <div style="display: inline-block;">watermelon</div>
+        </div>
+
+        <h2>none</h2>
+        <div class="x">
+                <div style="display: inline;">apple</div>
+                <div style="display: inline;">orange</div>
+                <div style="display: none;">mango</div>
+                <div style="display: inline;">watermelon</div>
+        </div>
+
+        <h2>display: none; VS visibility: hidden;</h2>
+        <div class="x" >
+                <div style="display: inline-block;">apple</div>
+                <div style="visibility: hidden; display: inline-block;">orange</div>
+                <div style="display: inline-block; display: none;">mango</div>
+                <div style="display: inline-block;">watermelon</div>
+        </div>
+
+        <h1>CSS Position</h1>
+        <h2>static</h2>
+        <div class="x">
+            <div class="box" style="position: static;">
+            </div>
+        </div>
+        <h2>absolute</h2>
+        <div class="x" style="position: relative;">
+            <div class="box" style="position: absolute;
+                                    background-color: rgba(255, 0, 0, 0.786);
+                                    ">
+            </div>
+        </div>
+        <h2>no width and height</h2>
+        <div class="x" style="position: unset;">
+            <div class="box" style="width: unset;
+                                    height: unset;
+                                    border: 2px solid red;
+                                    ">
+                                
+            </div>
+        </div>
+        <h2>fixed width/height + right/top</h2>
+        <div class="x">
+            <div style="position: relative;
+                        width: auto;
+                        height: 100px;
+                        background-color: aliceblue;
+                        border: 2px solid blue;
+                        ">
+                        <div    style=" position: absolute; 
+                                        background-color: red;   
+                                        border-radius: 50%;
+                                        text-align: center;
+                                        width: 20px;
+                                        height: 20px;
+                                        right: -10px;
+                                        top: -10px;
+                                        ">
+                            x
+                        </div>
+
+            </div>
+        </div>
+        <div style="width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.486);
+                    top: 0;
+                    right: 0;
+                    position: fixed;
+                    ">
+            <div class="box" style="position: fixed;
+                                text-align: center;
+                                width: auto;
+                                height: auto;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                background-color: aliceblue;
+                                ">
+            <p   style="padding: unset;
+                        padding: 10px;">
+                        Songkran Festival<br>2023
+        </p>
+        </div> 
+        </div>
+        
+          
+    </body>
+</html>
