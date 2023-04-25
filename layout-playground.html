@@ -47,14 +47,11 @@
             height: fit-content;
             margin: 5px;
             display: flex;
-            border-right: 1px solid #666;
-            border-left: 1px solid #666;
             border-top: 1px solid #666;
-
-
-
         }
         .menu-item {
+            border-right: 1px solid #666;
+            border-left: 1px solid #666;
             border-bottom: 1px solid #666;
             padding: 5px;
             text-align: center;
@@ -108,29 +105,25 @@
   <div class="playground">
     <style>
         .navigation-container {
-            display: flex;
-            flex-direction: row;
-            margin: 5px;
-            padding-left: 1px;
-            padding-right: 13px;
-            border: 2px solid #666;
-            width: fit-content;
-            justify-content: center;
-            column-gap: 30px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          width: 540px;
+          border: 2px solid #666;
+          margin: 5px;
+          padding: 10px;
+          justify-content: space-around;
         }
         .navigation-item {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            padding: 10px;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          width: a;
         }
         .navigation-item-icon {
-            width: fit-content;
+            width: auto;
             text-align: center;
-            padding-bottom: 8px;
             text-align: center;
-        }
-        i {
             font-size: 24px; 
             text-align: center;
         }
@@ -139,7 +132,8 @@
 
     <div class="navigation-container">
       <div class="navigation-item">
-        <div class="navigation-item-icon"><i class="gg-time"></i></div>
+        <div class="navigation-item-icon"><i class="fa">&#xf017;</i>
+        </div>
         <div class="navigation-item-label">
           First Menu
         </div>
@@ -151,15 +145,15 @@
         </div>
       </div>
       <div class="navigation-item">
-        <div class="navigation-item-icon">icon</div>
+        <div class="navigation-item-icon"><i class="fa">&#xf0ad;</i></div>
         <div class="navigation-item-label">
           Third Menu
         </div>
       </div>
       <div class="navigation-item">
-        <div class="navigation-item-icon">icon</div>
+        <div class="navigation-item-icon"><i class="fa">&#xf132;</i></div>
         <div class="navigation-item-label">
-          Fourth Menu
+          Very Long Text Menu
         </div>
       </div>
     </div>
@@ -172,6 +166,42 @@
   <h3>playground</h3>
   <div class="playground">
     <style>
+      .card-list-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 80%;
+        background-color: aqua;
+        border: 2px solid blue;
+      }
+      .card-container {
+        margin: 5px;
+        width: 220px;
+        background-color: rgb(238, 79, 79);
+      }
+      .card-content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-content-image-section img {
+        width: 220px;
+      }
+      .card-content-detail-section {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+      }
+      .product-name {
+        font-weight: bold;
+      }
+      .product-description {
+        font-size: 10px;
+      }
+      .product-price {
+        text-align: right;
+        font-weight: bold;
+      }
 
     </style>
 
@@ -180,7 +210,7 @@
         <div class="card-container">
           <div class="card-content">
             <div class="card-content-image-section">
-              <img src="">
+              <img src="images/toki.jpg">
             </div>
             <div class="card-content-detail-section">
               <div class="product-name">
@@ -194,9 +224,135 @@
               </div>
             </div>
           </div>
+      </div>
+      <div class="card-container">
+        <div class="card-content">
+          <div class="card-content-image-section">
+            <img src="images/toki.jpg">
+          </div>
+          <div class="card-content-detail-section">
+            <div class="product-name">
+              Elite Obsidian
+            </div>
+            <div class="product-description">
+              Awesome product from Mars made by hand of Ultraman
+            </div>
+            <div class="product-price">
+              1,000
+            </div>
+          </div>
         </div>
       </div>
-      ... duplicated card here
+      <div class="card-container">
+        <div class="card-content">
+          <div class="card-content-image-section">
+            <img src="images/toki.jpg">
+          </div>
+          <div class="card-content-detail-section">
+            <div class="product-name">
+              Elite Obsidian
+            </div>
+            <div class="product-description">
+              Awesome product from Mars made by hand of Ultraman
+            </div>
+            <div class="product-price">
+              1,000
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card-content">
+          <div class="card-content-image-section">
+            <img src="images/toki.jpg">
+          </div>
+          <div class="card-content-detail-section">
+            <div class="product-name">
+              Elite Obsidian
+            </div>
+            <div class="product-description">
+              Awesome product from Mars made by hand of Ultraman
+            </div>
+            <div class="product-price">
+              1,000
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card-content">
+          <div class="card-content-image-section">
+            <img src="images/toki.jpg">
+          </div>
+          <div class="card-content-detail-section">
+            <div class="product-name">
+              Elite Obsidian
+            </div>
+            <div class="product-description">
+              Awesome product from Mars made by hand of Ultraman
+            </div>
+            <div class="product-price">
+              1,000
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card-content">
+          <div class="card-content-image-section">
+            <img src="images/toki.jpg">
+          </div>
+          <div class="card-content-detail-section">
+            <div class="product-name">
+              Elite Obsidian
+            </div>
+            <div class="product-description">
+              Awesome product from Mars made by hand of Ultraman
+            </div>
+            <div class="product-price">
+              1,000
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card-content">
+          <div class="card-content-image-section">
+            <img src="images/toki.jpg">
+          </div>
+          <div class="card-content-detail-section">
+            <div class="product-name">
+              Elite Obsidian
+            </div>
+            <div class="product-description">
+              Awesome product from Mars made by hand of Ultraman
+            </div>
+            <div class="product-price">
+              1,000
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card-content">
+          <div class="card-content-image-section">
+            <img src="images/toki.jpg">
+          </div>
+          <div class="card-content-detail-section">
+            <div class="product-name">
+              Elite Obsidian
+            </div>
+            <div class="product-description">
+              Awesome product from Mars made by hand of Ultraman
+            </div>
+            <div class="product-price">
+              1,000
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
   </div>
 
@@ -207,6 +363,35 @@
   <h3>playground</h3>
   <div class="playground">
     <style>
+      .sidebar-container {
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid #666;
+        width: 270px;
+        margin: 5px;
+      }
+      .sidebar-profile-section {
+        border-bottom: 2px solid #666;
+        border-left: 2px solid #666;
+        border-right: 2px solid #666;
+        padding: 5px;
+        font-weight: bolder;
+        font-size: larger;
+      }
+      .sidebar-menu-section {
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        border-left: 2px solid #666;
+        border-right: 2px solid #666;
+      }
+      .sidebar-menu-item {
+        padding: 5px;
+      }
+      .sidebar-footer-section {
+        border: 2px solid #666;
+        padding: 5px;
+      }
 
     </style>
 
