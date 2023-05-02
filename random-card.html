@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My HTML Page</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>pok</title>
     <style>
         
         .container {
@@ -23,7 +22,7 @@
             background-color: gold;
             border-top-right-radius: 5px;
             border-top-left-radius: 5px;
-            justify-content: space-between;
+            justify-content: space-evenly;
             padding: 5px;
             padding-top: 50px;
             padding-bottom: 50px;
@@ -35,9 +34,9 @@
             height: 200px;
             background-color: snow;
             justify-content: space-evenly;
-            border: 1px solid rgb(51, 188, 51);
             display: flex;
             flex-direction: column;
+            border: 3px solid black;
 
         }
         button {
@@ -45,7 +44,7 @@
             height: 20%;
             padding: auto;
             border: unset;
-            border-top: 2px solid green;
+            border-top: 3px solid green;
         }
         button:hover {
             background-color: rgba(209, 170, 170, 0.537);
@@ -93,8 +92,24 @@
 
 <script>
 // card number and type
-var CARD_TYPE = ['♣', '♦', '♥', '♠']
-var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
+var CARD_TYPE = [{  
+                    type: '♣',
+                    color: 'black'
+                 },
+                 {
+                    type: '♦',
+                    color: 'red'
+                 },
+                 {
+                    type: '♥',
+                    color: 'red'
+                 }, 
+                 {
+                    type: '♠',
+                    color: 'black'
+                 }
+                ]
+var CARD_NUMBER = ['A', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
 const button = document.getElementById('randomButton');
 
 const listCardNum = ['num1','num2','num3','num4'];
@@ -116,13 +131,25 @@ function randomButton() {
     for(let i = 0 ; i < numberOfCards;i++){
         heading = document.getElementById(listCardNum[i]);
         typing = document.getElementById(listCardType[i]);
+        let x = random(CARD_TYPE.length);
+        typing.textContent = CARD_TYPE[x].type;
+        typing.style.color = CARD_TYPE[x].color;
+
         heading.textContent = CARD_NUMBER[random(CARD_NUMBER.length)];
-        typing.textContent = CARD_TYPE[random(CARD_TYPE.length)];
+        heading.style.color = CARD_TYPE[x].color;
+
+        const borderCard = document.getElementsByClassName('card');
+        for (let j = 0; j < borderCard.length; j++) {
+            borderCard[i].style.borderColor =  CARD_TYPE[x].color;
+        }
     }
 
-
 }
+window.onload = randomButton;
 button.addEventListener('click', randomButton);
+
+
+
 
 
 
