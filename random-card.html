@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My HTML Page</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        
+        .container {
+            position: fixed;
+            width: 50%;
+            height: fit-content;
+            background-color: aqua;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid green;
+        }
+        .contain {
+            display: flex;
+            flex-direction: row;
+            height: 80%;
+            background-color: gold;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            justify-content: space-between;
+            padding: 5px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+
+        }
+        .card {
+            position: relative;
+            width: 20%;
+            height: 200px;
+            background-color: snow;
+            justify-content: space-evenly;
+            border: 1px solid rgb(51, 188, 51);
+            display: flex;
+            flex-direction: column;
+
+        }
+        button {
+            width: 100%;
+            height: 20%;
+            padding: auto;
+            border: unset;
+            border-top: 2px solid green;
+        }
+        button:hover {
+            background-color: rgba(209, 170, 170, 0.537);
+        }
+        button:active {
+            background-color: red;
+        }
+        h1 {
+            text-align: center;
+            transform: translatey(-50%);
+            margin: auto;
+        }
+        h2 {
+            padding-right: 5px;
+            text-align: right;
+            margin: unset;
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+        <div class="contain">
+            <div class="card">
+                <h2 id="type1"></h2>
+                <h1 id="num1"></h1>
+            </div>
+            <div class="card">
+                <h2 id="type2"></h2>
+                <h1 id="num2"></h1>
+            </div>
+            <div class="card">
+                <h2 id="type3"></h2>
+                <h1 id="num3"></h1>
+            </div>
+            <div class="card">
+                <h2 id="type4"></h2>
+                <h1 id="num4"></h1>
+            </div>
+        </div>
+        <button id="randomButton">Random</button>
+        
+    </div>
+</body>
+</html>
+
+<script>
+// card number and type
+var CARD_TYPE = ['♣', '♦', '♥', '♠']
+var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
+const button = document.getElementById('randomButton');
+
+const listCardNum = ['num1','num2','num3','num4'];
+const listCardType = ['type1','type2','type3','type4'];
+
+const cards = document.getElementsByClassName('card');
+const numberOfCards = parseInt(cards.length);
+
+let heading = null;
+let typing = null;
+
+// random function
+// max: number > 0
+// return [0, max -1]
+function random(max) {
+   return parseInt(Math.random() * max) % max
+}
+function randomButton() {
+    for(let i = 0 ; i < numberOfCards;i++){
+        heading = document.getElementById(listCardNum[i]);
+        typing = document.getElementById(listCardType[i]);
+        heading.textContent = CARD_NUMBER[random(CARD_NUMBER.length)];
+        typing.textContent = CARD_TYPE[random(CARD_TYPE.length)];
+    }
+
+
+}
+button.addEventListener('click', randomButton);
+
+
+
+</script>
