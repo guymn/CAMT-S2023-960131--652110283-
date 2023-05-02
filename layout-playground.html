@@ -42,11 +42,11 @@
   <div class="playground">
     <style>
         .menu-container {
+            display: flex;
             flex-direction: column;
             width: fit-content;
             height: fit-content;
             margin: 5px;
-            display: flex;
             border-top: 1px solid #666;
         }
         .menu-item {
@@ -80,11 +80,14 @@
         .header-container {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
             padding: 10px;
             margin: 10px;
             border: 2px solid #666;
             width: 600px;
+        }
+        .header-content {
+          text-align: center;
+          flex-grow: 1;
         }
   
     </style>
@@ -123,9 +126,7 @@
         .navigation-item-icon {
             width: auto;
             text-align: center;
-            text-align: center;
             font-size: 24px; 
-            text-align: center;
         }
 
     </style>
@@ -366,9 +367,11 @@
       .sidebar-container {
         display: flex;
         flex-direction: column;
+        position: absolute;
         border-top: 2px solid #666;
-        width: 270px;
+        width: 250px;
         margin: 5px;
+        height: 80%;
       }
       .sidebar-profile-section {
         border-bottom: 2px solid #666;
@@ -381,7 +384,7 @@
       .sidebar-menu-section {
         display: flex;
         flex-direction: column;
-        height: 200px;
+        flex-grow: 1;
         border-left: 2px solid #666;
         border-right: 2px solid #666;
       }
@@ -392,6 +395,7 @@
         border: 2px solid #666;
         padding: 5px;
       }
+
 
     </style>
 
