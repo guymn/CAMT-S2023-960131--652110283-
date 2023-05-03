@@ -6,7 +6,7 @@
         
         .container {
             position: fixed;
-            width: 50%;
+            width: 52%;
             height: fit-content;
             background-color: aqua;
             top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -18,7 +18,6 @@
         .contain {
             display: flex;
             flex-direction: row;
-            height: 80%;
             background-color: gold;
             border-top-right-radius: 5px;
             border-top-left-radius: 5px;
@@ -26,25 +25,25 @@
             padding: 5px;
             padding-top: 50px;
             padding-bottom: 50px;
-
         }
         .card {
             position: relative;
-            width: 20%;
-            height: 200px;
+            width: 100px;
+            height: 150px;
             background-color: snow;
             justify-content: space-evenly;
             display: flex;
             flex-direction: column;
             border: 3px solid black;
-
+            overflow: hidden;
         }
         button {
             width: 100%;
-            height: 20%;
+            height: 50px;
             padding: auto;
             border: unset;
             border-top: 3px solid green;
+            overflow: hidden;
         }
         button:hover {
             background-color: rgba(209, 170, 170, 0.537);
@@ -68,23 +67,25 @@
 	<div class="container">
         <div class="contain">
             <div class="card">
-                <h2 id="type1"></h2>
-                <h1 id="num1"></h1>
+                <h2 class="cardType"></h2>
+                <h1 class="cardNumber"></h1>
             </div>
             <div class="card">
-                <h2 id="type2"></h2>
-                <h1 id="num2"></h1>
+                <h2 class="cardType"></h2>
+                <h1 class="cardNumber"></h1>
             </div>
             <div class="card">
-                <h2 id="type3"></h2>
-                <h1 id="num3"></h1>
+                <h2 class="cardType"></h2>
+                <h1 class="cardNumber"></h1>
             </div>
             <div class="card">
-                <h2 id="type4"></h2>
-                <h1 id="num4"></h1>
+                <h2 class="cardType"></h2>
+                <h1 class="cardNumber"></h1>
             </div>
         </div>
-        <button id="randomButton">Random</button>
+        <div>
+            <button id="randomButton">Click me to Random</button>
+        </div>
         
     </div>
 </body>
@@ -108,18 +109,12 @@ var CARD_TYPE = [{
                     type: '♠',
                     color: 'black'
                  }
-                ]
-var CARD_NUMBER = ['A', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
+                ];
+var CARD_NUMBER = ['A', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K'];
 const button = document.getElementById('randomButton');
-
-const listCardNum = ['num1','num2','num3','num4'];
-const listCardType = ['type1','type2','type3','type4'];
 
 const cards = document.getElementsByClassName('card');
 const numberOfCards = parseInt(cards.length);
-
-let heading = null;
-let typing = null;
 
 // random function
 // max: number > 0
@@ -129,28 +124,23 @@ function random(max) {
 }
 function randomButton() {
     for(let i = 0 ; i < numberOfCards;i++){
-        heading = document.getElementById(listCardNum[i]);
-        typing = document.getElementById(listCardType[i]);
-        let x = random(CARD_TYPE.length);
-        typing.textContent = CARD_TYPE[x].type;
-        typing.style.color = CARD_TYPE[x].color;
+        let heading = document.getElementsByClassName('cardNumber')[i];
+        let typing = document.getElementsByClassName('cardType')[i];
+        let randomType = CARD_TYPE[random(CARD_TYPE.length)];
+        let randomNumber = CARD_NUMBER[random(CARD_NUMBER.length)];
 
-        heading.textContent = CARD_NUMBER[random(CARD_NUMBER.length)];
-        heading.style.color = CARD_TYPE[x].color;
+        //set
+        typing.textContent = randomType.type;
+        typing.style.color = randomType.color;
 
         const borderCard = document.getElementsByClassName('card');
-        for (let j = 0; j < borderCard.length; j++) {
-            borderCard[i].style.borderColor =  CARD_TYPE[x].color;
-        }
+        borderCard[i].style.borderColor =  randomType.color;
+        
+        heading.textContent = randomNumber;
+        heading.style.color = randomType.color;
     }
-
 }
 window.onload = randomButton;
 button.addEventListener('click', randomButton);
-
-
-
-
-
 
 </script>
