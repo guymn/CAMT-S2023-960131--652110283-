@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>
+            matching-game
+        </title>
+        <style>
+            .board {
+                border-radius: 8px;
+                width: 100%;
+                height: 100%;
+                margin: auto;
+                border: 3px solid seagreen;
+                overflow: hidden;
+            }
+            .board-content {
+                background-color: goldenrod;
+                display: flex;
+                flex-direction: row;
+                height: 500px;
+                flex-grow: 1;
+            }
+            .footer {
+                flex-grow: 0;
+                height: 100px;
+                overflow: hidden;
+
+            }
+            button {
+                height: 100%;
+                width: 100%;
+            }
+            .card-zone {
+                flex-grow: 1;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                margin: 5px;
+            }
+            .player-zone {
+                display: flex;
+                flex-direction: column;
+                width: 20%;
+            }
+            .player {
+                text-align: center;
+                padding: auto;
+                border: 3px solid seagreen;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                color: #fff;
+                position: relative;
+                border-top: unset;
+                border-right: unset;
+            }
+            .player-b {
+                border-bottom: unset;
+            }
+            .player-score {
+                font-size: 50px;
+                transform: translatey(-50%);
+                margin: auto;
+            }
+            .player-title{
+                font-size: 20px;
+                padding: 10px;
+            }
+            .card {
+                background-color: aliceblue;
+                overflow: hidden;
+                width: 86px;
+                height: 136px;
+                border: 2px solid black;
+                margin:5px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                padding: 5px;
+                position: relative;
+            }
+            .card-title {
+                text-align: right;
+            }
+            .card-body {
+                position: absolute;
+                font-size: 50px;
+                top: 50%; left: 50%; transform: translate(-50%, -50%);
+            }
+            .face-down{
+                background-color: rgb(145, 156, 156);
+                border: 2px solid rgb(225, 225, 225);
+                color: rgb(225, 225, 225);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="board">
+            <div class="board-content">
+                <div id="CARD" class="card-zone">
+                </div>
+                
+                <div class="player-zone">
+                    <div class="player player-a">
+                        <div class="player-title">
+                        Player A
+                        </div>
+                        <div class="player-score">
+                        0
+                        </div>
+                    </div>
+                    <div class="player player-b">
+                        <div class="player-title">
+                        Player B
+                        </div>
+                    <div class="player-score">
+                    0
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button class="new-game-button">New Game</button>
+            </div>
+            </div>
+    </body>
+</html>
+<script>
+    var cardList = [
+        { value: ['♣', 'black', 'A'], isFaceDown: true },
+        { value: ['♣', 'black', '2'], isFaceDown: false },
+        { value: ['♣', 'black', '3'], isFaceDown: true },
+        { value: ['♣', 'black', '4'], isFaceDown: false },
+        { value: ['♣', 'black', '5'], isFaceDown: true },
+        { value: ['♣', 'black', '6'], isFaceDown: true },
+        { value: ['♣', 'black', '7'], isFaceDown: true },
+        { value: ['♣', 'black', '8'], isFaceDown: false },
+        { value: ['♣', 'black', '9'], isFaceDown: true },
+        { value: ['♣', 'black', '10'], isFaceDown: true },
+        { value: ['♣', 'black', 'J'], isFaceDown: true },
+        { value: ['♣', 'black', 'Q'], isFaceDown: true },
+        { value: ['♣', 'black', 'K'], isFaceDown: false },
+        { value: ['♥', 'red', 'A'], isFaceDown: true },
+        { value: ['♥', 'red', '2'], isFaceDown: true },
+        { value: ['♥', 'red', '3'], isFaceDown: false },
+        { value: ['♥', 'red', '4'], isFaceDown: false },
+        { value: ['♥', 'red', '5'], isFaceDown: true },
+        { value: ['♥', 'red', '6'], isFaceDown: false },
+        { value: ['♥', 'red', '7'], isFaceDown: true },
+        { value: ['♥', 'red', '8'], isFaceDown: true },
+        { value: ['♥', 'red', '9'], isFaceDown: true },
+        { value: ['♥', 'red', '10'], isFaceDown: true },
+        { value: ['♥', 'red', 'J'], isFaceDown: true },
+        { value: ['♥', 'red', 'Q'], isFaceDown: true },
+        { value: ['♥', 'red', 'K'], isFaceDown: false },                                  
+    ]
+    function htmlToElem(html) {
+        let temp = document.createElement('template');
+        html = html.trim(); // Never return a space text node as a result
+        temp.innerHTML = html;
+        return temp.content.firstChild;
+    }
+
+    function renderCardList() {
+        const cardZoneElm = document.getElementById('CARD');
+        // TODO: define cardZoneElm here
+        // before append any DOM(s), you need to clear all children of cardZoneElm
+        // cardZone.clear;
+        for (var idx=0; idx < cardList.length; idx++) {
+            // TODO:
+            // if isFaceDown is true, create a card component with 'face-down' class
+            if(cardList[idx].isFaceDown){
+                cardElm = htmlToElem('<div class="card face-down"><div class="card-body">?</div></div>')
+            }
+            else {
+                var cardHtml = '<div class="card"><div class="card-title">' + cardList[idx].value[0] + '</div><div class="card-body">' + cardList[idx].value[2] + '</div></div>';
+                cardElm = htmlToElem(cardHtml)
+            }   
+            cardZoneElm.append(cardElm)
+        }
+    }
+    window.onload = renderCardList;
+    button.addEventListener("click", function() {
+        renderCardList();
+        console.log('g');
+    });
+</script>
