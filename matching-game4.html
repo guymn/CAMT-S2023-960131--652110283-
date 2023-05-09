@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>
+            matching-game
+        </title>
+        <style>
+            .board {
+                border-radius: 8px;
+                width: 100%;
+                margin: auto;
+                border: 3px solid seagreen;
+                overflow: hidden;
+            }
+            .board-content {
+                background-color: goldenrod;
+                display: flex;
+                flex-direction: row;
+                height: fit-content;
+                flex-grow: 1;
+            }
+            .footer {
+                flex-grow: 0;
+                height: 100px;
+                overflow: hidden;
+
+            }
+            button {
+                height: 100%;
+                width: 100%;
+            }
+            .card-zone {
+                flex-grow: 1;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                margin: 5px;
+            }
+            .player-zone {
+                display: flex;
+                flex-direction: column;
+                min-width: 10%;
+            }
+            .player {
+                text-align: center;
+                padding: auto;
+                border: 3px solid seagreen;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                color: #fff;
+                position: relative;
+                border-top: unset;
+                border-right: unset;
+            }
+            .player-b {
+                border-bottom: unset;
+            }
+            .player-score {
+                font-size: 50px;
+                transform: translatey(-50%);
+                margin: auto;
+            }
+            .player-title{
+                font-size: 20px;
+                padding: 10px;
+            }
+            .card {
+                background-color: aliceblue;
+                overflow: hidden;
+                width: 86px;
+                height: 136px;
+                border: 2px solid black;
+                margin:5px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                padding: 5px;
+                position: relative;
+            }
+            .card-title {
+                text-align: right;
+            }
+            .card-body {
+                position: absolute;
+                font-size: 50px;
+                top: 50%; left: 50%; transform: translate(-50%, -50%);
+            }
+            .face-down{
+                background-color: rgb(145, 156, 156);
+                border: 2px solid rgb(225, 225, 225);
+                color: rgb(225, 225, 225);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="board">
+            <div class="board-content">
+                <div id="CARD" class="card-zone">
+                </div>
+                
+                <div class="player-zone">
+                    <div class="player player-a">
+                        <div class="player-title">
+                        Player A
+                        </div>
+                        <div class="player-score">
+                        0
+                        </div>
+                    </div>
+                    <div class="player player-b">
+                        <div class="player-title">
+                        Player B
+                        </div>
+                    <div class="player-score">
+                    0
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button id="button" class="new-game-button">New Game</button>
+            </div>
+            </div>
+    </body>
+</html>
+<script>
+    const CARD_TYPE = [{  
+                    type: '♣',
+                    color: 'black'
+                 },
+                 {
+                    type: '♦',
+                    color: 'red'
+                 },
+                 {
+                    type: '♥',
+                    color: 'red'
+                 }, 
+                 {
+                    type: '♠',
+                    color: 'black'
+                 }
+                ];
+const CARD_NUMBER = ['A', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K'];
+const cardList = new Array(52);
+let cardUsed = [];
+const cardZoneElm = document.getElementById('CARD');
+let temp = document.createElement('template');
+
+function htmlToElem(html) {
+    html = html.trim(); // Never return a space text node as a result
+    temp.innerHTML = html;
+    return temp.content.firstChild;
+}
+function random(max) {
+    let ran = parseInt(Math.random() * max) % max;
+    for(card of cardUsed){
+        if(ran == card){
+            return random(max);
+        }
+    }
+    cardUsed.push(ran);
+    return ran;
+}
+function renderCardList() {
+    cardZoneElm.innerHTML = ''; // clear all existing children
+    for(card of cardList){
+        let boolean = card[3][parseInt(Math.random() * 2) % 2];
+        console.log(boolean);
+        let randomCard = random(cardList.length);
+        let number = cardList[randomCard][0];
+        let type = cardList[randomCard][1];
+        let color = cardList[randomCard][2];
+        let cardHtml;
+
+        if(boolean){
+            cardHtml = '<div class="card face-down"><div class="card-body">?</div></div>';
+            cardElm = htmlToElem(cardHtml);
+        }
+        else {
+            cardHtml = '<div class="card"><div class="card-title">' + type + '</div><div class="card-body">' + number + '</div></div>';
+            cardElm = htmlToElem(cardHtml);
+            cardElm.style.color = color;
+            cardElm.style.borderColor = color;
+        }
+        cardZoneElm.append(cardElm);
+    }
+    cardUsed = [];
+}
+const button = document.getElementById('button');
+window.onload = function() {
+    let count = 0;
+    for(let i = 0 ; i < CARD_NUMBER.length ; i++){
+        let number = CARD_NUMBER[i];
+        for(let j = 0 ; j < CARD_TYPE.length ; j++){
+            cardList[count] = new Array(4);
+            let type = CARD_TYPE[j].type;
+            let color = CARD_TYPE[j].color;
+            let cardHtml = '<div class="card"><div class="card-title">' + type + '</div><div class="card-body">' + number + '</div></div>';
+            cardElm = htmlToElem(cardHtml)
+            cardElm.style.color = color;
+            cardElm.style.borderColor = color;
+            cardZoneElm.append(cardElm)
+            cardList[count][0] = number;
+            cardList[count][1] = type;
+            cardList[count][2] = color;
+            cardList[count][3] = [false, true];
+            count++;
+        }
+    }
+}
+button.addEventListener("click", function() {
+    renderCardList();
+});
+</script>
